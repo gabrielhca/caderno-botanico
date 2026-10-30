@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Testes e análise estática
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# Build e empacotamento do aplicativo
+build/
+dist/
+*.spec
+
+# Dados da aplicação (banco SQLite e fotos do usuário)
+*.db
+*.sqlite
+*.sqlite3
+/data/
+
+# Configuração local do Claude Code (arquivos pessoais)
+.claude/settings.local.json
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
