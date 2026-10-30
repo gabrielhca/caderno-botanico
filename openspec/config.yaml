@@ -1,0 +1,25 @@
+schema: spec-driven
+
+context: |
+  Projeto: Caderno Botânico, diário fotográfico e controle de cultivo de plantas.
+  Aplicação desktop offline-first. Um único papel (jardineiro). Plantas (espécimes) organizadas em
+  cadernos, cada um representando um ambiente de cultivo. Cada espécime tem uma cadeia de fotos datadas.
+
+  Stack: Python, PySide6/QML, SQLite (um arquivo com todos os cadernos), pytest.
+  Arquitetura em camadas: UI -> Services -> Domain e Repositories; Storage implementa os Repositories.
+  O Domain não depende de nenhuma outra camada.
+
+  Entidades (Fase 1): Caderno, Local de cultivo, Espécime, Foto de espécime, Opção configurável,
+  Campo de registro, Pacote (.zip com manifest.json e pasta fotos/).
+
+  Regras invioláveis:
+  1. Offline-first, sem internet, nuvem ou telemetria.
+  2. Só a camada Storage acessa o SQLite; tudo passa pelos Repositories.
+  3. Regras de negócio ficam no Domain, nunca na UI.
+  4. Entidades fixas no código; listas de opções e campos extras vêm da configuração do usuário.
+  5. Espécime perdido é arquivado, nunca apagado.
+  6. Fotos ficam em disco; o banco guarda só o caminho relativo.
+  7. Artefatos e textos em PT-BR; identificadores de código em inglês (PEP 8).
+  8. Se faltar contexto, listar o que precisa em vez de supor; dúvidas de negócio vão em 'Questões em aberto'.
+
+  O vocabulário das capacidades e o plano de changes estão em docs/mapa-de-capacidades.md.
