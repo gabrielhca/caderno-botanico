@@ -12,6 +12,9 @@
 | CI inicial | Só Ruff e pytest, em Pull Requests para develop e main | PySide6 e qmllint entram quando houver QML para checar |
 | Estrutura inicial | Feita fora do OpenSpec (branch `feature/estrutura-inicial`) | Esqueleto e CI não são uma capacidade do sistema |
 | Escopo | Fase 1 enxuta; radar, motor de rega e quarentena ficam para a Fase 2 | Evitar que o projeto de estudo vire uma segunda tarefa gigante |
+| Fluxo de Git | `feature/*` nasce da `develop` e volta por Pull Request com CI verde; `develop` vai para `main` nas versões estáveis | Fluxo definido na reunião da equipe |
+| `criar-caderno` | Descrição opcional; nome com até 80 caracteres e único sem diferenciar caixa; lista em ordem alfabética | Premissas confirmadas |
+
 
 ## Decisões adiadas
 
@@ -24,3 +27,5 @@
 - Como gerar o aplicativo para Windows e Linux.
 - PySide6 e qmllint no CI.
 - Proteção das branches `develop` e `main` no GitHub.
+- Aprofundar componentização QML (a interface da `criar-caderno` é mínima de propósito).
+- Revisar o `ci.yml` linha a linha e fazer `integration.yml`, `release.yml`, build e proteção de branches.
