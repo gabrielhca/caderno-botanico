@@ -17,9 +17,9 @@
 
 ## 4. Storage
 
-- [ ] 4.1 Implementar a criação do esquema SQLite (tabela `cadernos`, `UNIQUE` em `nome_normalizado`, `PRAGMA user_version`) e verificar com um teste que o esquema é criado em um banco `:memory:`
-- [ ] 4.2 Implementar `SqliteCadernoRepository` e verificar com testes que salvar, atualizar, listar e a checagem de nome funcionam, e que uma violação de `UNIQUE` vira `NomeDuplicadoError`
-- [ ] 4.3 Verificar com um teste usando arquivo temporário que os cadernos continuam disponíveis após fechar e reabrir a conexão (cenário de persistência local)
+- [x] 4.1 Implementar a criação do esquema SQLite (tabela `cadernos`, `UNIQUE` em `nome_normalizado`, `PRAGMA user_version`) e verificar com um teste que o esquema é criado em um banco `:memory:`
+- [x] 4.2 Implementar `SqliteCadernoRepository` e verificar com testes que salvar, atualizar, listar e a checagem de nome funcionam, e que uma violação de `UNIQUE` vira `NomeDuplicadoError`
+- [x] 4.3 Verificar com um teste usando arquivo temporário que os cadernos continuam disponíveis após fechar e reabrir a conexão (cenário de persistência local)
 
 ## 5. Ponte Qt na UI
 
