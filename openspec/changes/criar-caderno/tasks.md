@@ -12,8 +12,8 @@
 
 ## 3. Repositories e Services
 
-- [ ] 3.1 Definir a interface `CadernoRepository` e criar um repositório falso em memória para os testes, verificando que ele satisfaz a interface
-- [ ] 3.2 Implementar `CadernoService` (criar, editar, listar) com testes cobrindo nome duplicado na criação, edição sem mudar o nome, renomear para nome de outro caderno, descrição opcional e ordenação alfabética sem diferenciar caixa
+- [x] 3.1 Definir a interface `CadernoRepository` e criar um repositório falso em memória para os testes, verificando que ele satisfaz a interface
+- [x] 3.2 Implementar `CadernoService` (criar, editar, listar) com testes cobrindo nome duplicado na criação, edição sem mudar o nome, renomear para nome de outro caderno, descrição opcional e ordenação alfabética sem diferenciar caixa
 
 ## 4. Storage
 
