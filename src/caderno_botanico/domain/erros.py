@@ -11,3 +11,7 @@ class NomeInvalidoError(DomainError):
 
 class NomeDuplicadoError(DomainError):
     """Já existe um caderno com esse nome."""
+
+
+class CadernoNaoEncontradoError(DomainError):
+    """O caderno pedido não existe."""
