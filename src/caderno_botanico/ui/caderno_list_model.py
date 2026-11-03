@@ -8,7 +8,7 @@ from caderno_botanico.domain.caderno import Caderno
 class CadernoListModel(QAbstractListModel):
     """Expõe uma lista de cadernos ao QML, uma linha por caderno.
 
-    O QML lê cada campo pelo nome do papel (role): `id`, `nome`, `descricao` e `criadoEm`.
+    O QML lê cada campo pelo nome do papel (role): `cadernoId`, `nome`, `descricao` e `criadoEm`.
     """
 
     IdRole = Qt.ItemDataRole.UserRole + 1
@@ -39,7 +39,7 @@ class CadernoListModel(QAbstractListModel):
 
     def roleNames(self) -> dict:
         return {
-            self.IdRole: b"id",
+            self.IdRole: b"cadernoId",
             self.NomeRole: b"nome",
             self.DescricaoRole: b"descricao",
             self.CriadoEmRole: b"criadoEm",
