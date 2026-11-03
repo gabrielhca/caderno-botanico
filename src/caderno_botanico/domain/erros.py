@@ -12,6 +12,9 @@ class NomeInvalidoError(DomainError):
 class NomeDuplicadoError(DomainError):
     """Já existe um caderno com esse nome."""
 
+    def __init__(self, mensagem: str = "Já existe um caderno com esse nome.") -> None:
+        super().__init__(mensagem)
+
 
 class CadernoNaoEncontradoError(DomainError):
     """O caderno pedido não existe."""

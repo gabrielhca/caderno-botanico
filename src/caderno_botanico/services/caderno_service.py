@@ -4,8 +4,6 @@ from caderno_botanico.domain.caderno import Caderno, normalizar_nome, validar_no
 from caderno_botanico.domain.erros import CadernoNaoEncontradoError, NomeDuplicadoError
 from caderno_botanico.repositories.caderno_repository import CadernoRepository
 
-MENSAGEM_NOME_DUPLICADO = "Já existe um caderno com esse nome."
-
 
 class CadernoService:
     """Orquestra a criação, edição e listagem de cadernos."""
@@ -36,4 +34,4 @@ class CadernoService:
 
     def _garantir_nome_livre(self, nome_normalizado: str, ignorar_id: int | None = None) -> None:
         if self._repository.exists_by_name(nome_normalizado, exclude_id=ignorar_id):
-            raise NomeDuplicadoError(MENSAGEM_NOME_DUPLICADO)
+            raise NomeDuplicadoError()
