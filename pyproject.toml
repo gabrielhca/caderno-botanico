@@ -1,0 +1,40 @@
+# Arquivo central do projeto Python: identidade, dependências e configuração das ferramentas.
+
+[build-system]
+# Ferramenta que sabe empacotar o projeto (necessária para o "pip install -e .").
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "caderno-botanico"
+version = "0.1.0"
+description = "Diário fotográfico e controle de cultivo de plantas (desktop, offline-first)"
+readme = "README.md"
+requires-python = ">=3.14"
+# Interface Qt/QML.
+dependencies = ["PySide6>=6.11"]
+
+[project.optional-dependencies]
+# Ferramentas usadas só no desenvolvimento: pip install -e ".[dev]"
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[tool.setuptools.packages.find]
+# O código fica em src/ (layout "src"), separado dos testes e da documentação.
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# E/F: erros e problemas comuns, I: ordem dos imports,
+# UP: sintaxe moderna do Python, B: armadilhas frequentes.
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Permite importar caderno_botanico nos testes mesmo sem instalar o pacote.
+pythonpath = ["src"]

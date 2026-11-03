@@ -1,0 +1,42 @@
+# CI (Integração Contínua): verifica a qualidade do código automaticamente.
+name: CI
+
+# Quando roda: a cada Pull Request aberto ou atualizado contra develop ou main.
+on:
+  pull_request:
+    branches: [develop, main]
+
+jobs:
+  qualidade:
+    name: Ruff e pytest
+    # Máquina virtual que o GitHub empresta para rodar os passos abaixo.
+    runs-on: ubuntu-latest
+    env:
+      # Roda o Qt sem tela, já que o servidor não tem monitor.
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Instalar bibliotecas do sistema usadas pelo Qt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libgl1 libxkbcommon0 libdbus-1-3 libfontconfig1 libglib2.0-0
+
+      - name: Instalar o projeto e as ferramentas de desenvolvimento
+        run: pip install -e ".[dev]"
+
+      # Se qualquer passo abaixo falhar, o job inteiro falha e o PR fica marcado com um X.
+      - name: Ruff (análise estática)
+        run: ruff check .
+
+      - name: Ruff (formatação)
+        run: ruff format --check .
+
+      - name: Testes (pytest)
+        run: pytest
