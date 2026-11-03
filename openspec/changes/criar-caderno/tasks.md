@@ -2,8 +2,8 @@
 
 ## 1. Dependências e CI com Qt
 
-- [ ] 1.1 Adicionar o PySide6 às dependências do `pyproject.toml` e verificar que `pip install -e ".[dev]"` conclui e `python -c "import PySide6"` funciona
-- [ ] 1.2 Ajustar o `ci.yml` para rodar com Qt sem tela (`QT_QPA_PLATFORM=offscreen` e pacotes do sistema, se necessários) e verificar que o CI de um Pull Request fica verde
+- [x] 1.1 Adicionar o PySide6 às dependências do `pyproject.toml` e verificar que `pip install -e ".[dev]"` conclui e `python -c "import PySide6"` funciona
+- [x] 1.2 Ajustar o `ci.yml` para rodar com Qt sem tela (`QT_QPA_PLATFORM=offscreen` e pacotes do sistema, se necessários) e verificar que o CI de um Pull Request fica verde
 
 ## 2. Domain
 
