@@ -21,5 +21,6 @@ context: |
   6. Fotos ficam em disco; o banco guarda só o caminho relativo.
   7. Artefatos e textos em PT-BR; identificadores: negócio em português sem acento (Caderno, nome) e termos técnicos em inglês (Service, Repository, Error).
   8. Se faltar contexto, listar o que precisa em vez de supor; dúvidas de negócio vão em 'Questões em aberto'.
+  9. Só a UI usa PySide6; Services, Domain, Repositories e Storage são Python puro.
 
   O vocabulário das capacidades e o plano de changes estão em docs/mapa-de-capacidades.md.
