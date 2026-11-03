@@ -25,7 +25,7 @@ def test_row_count_acompanha_a_lista(qapp):
 def test_papeis_expostos_ao_qml(qapp):
     nomes = {bytes(nome).decode() for nome in CadernoListModel().roleNames().values()}
 
-    assert nomes == {"id", "nome", "descricao", "criadoEm"}
+    assert nomes == {"cadernoId", "nome", "descricao", "criadoEm"}
 
 
 def test_data_devolve_cada_campo_pelo_papel(qapp):
