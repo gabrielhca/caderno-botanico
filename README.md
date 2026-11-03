@@ -2,9 +2,11 @@
 
 Diário fotográfico e controle de cultivo de plantas. Aplicação desktop **offline-first** para acompanhar cada planta ao longo do tempo, com uma cadeia de fotos datadas por espécime, organizada em cadernos (um por ambiente de cultivo).
 
-> **Status: planejamento.** Ainda não há código. Este repositório começa pela documentação e pelo fluxo de especificação (Spec-Driven Development com OpenSpec).
+> **Status:** Fase 1 em andamento. Já é possível criar, editar e listar cadernos (change `criar-caderno`). Locais de cultivo, espécimes, fotos e pacotes ainda não foram implementados.
 
 ## Objetivo do projeto
+
+Projeto pessoal de estudo e portfólio, desenvolvido em paralelo a um projeto de equipe. Ele usa a mesma stack e a mesma arquitetura em camadas, mas com um domínio diferente, para praticar:
 
 - componentização de interface com Qt Quick/QML;
 - integração Qt/Python (QObject, Signals, Slots, Properties, Model/View);
@@ -13,28 +15,66 @@ Diário fotográfico e controle de cultivo de plantas. Aplicação desktop **off
 
 ## Stack
 
-- Python
+- Python 3.14
 - PySide6 / QML
 - SQLite
-- pytest
+- pytest e Ruff
 
 Arquitetura em camadas: `UI → Services → Domain / Repositories`, com o `Storage` implementando os Repositories. Detalhes em [`docs/project.md`](docs/project.md).
+
+## Como executar
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+
+python -m caderno_botanico
+```
+
+O banco fica na pasta de dados do usuário (no Linux, `~/.local/share/caderno-botanico/`). Para usar outro arquivo, por exemplo em testes manuais:
+
+```bash
+CADERNO_BOTANICO_DB=/tmp/teste.db python -m caderno_botanico
+```
+
+## Qualidade
+
+```bash
+ruff check .
+ruff format --check .
+pyside6-qmllint src/caderno_botanico/ui/qml/*.qml
+pytest
+```
+
+O mesmo conjunto roda no GitHub Actions a cada Pull Request (`.github/workflows/ci.yml`).
 
 ## Estrutura do repositório
 
 ```text
 .
 ├── README.md
+├── pyproject.toml
+├── .github/workflows/ci.yml        # CI: Ruff, qmllint e pytest
 ├── docs/
-│   ├── project.md                # contexto global (enviado no início de toda sessão com a IA)
-│   ├── historias-de-usuario.md   # histórias da Fase 1 (US01 a US12)
-│   ├── mapa-de-capacidades.md    # capacidades OpenSpec e plano de changes
-│   └── guia_de_contexto.md       # como fornecer contexto à IA em cada etapa
-└── openspec/
-    └── config.yaml               # resumo do project.md usado pelo OpenSpec
+│   ├── project.md                  # contexto global (enviado no início de toda sessão com a IA)
+│   ├── historias-de-usuario.md     # histórias da Fase 1 (US01 a US12)
+│   ├── mapa-de-capacidades.md      # capacidades OpenSpec e plano de changes
+│   ├── guia_de_contexto.md         # como fornecer contexto à IA em cada etapa
+│   └── decisoes.md                 # registro de decisões
+├── openspec/
+│   ├── config.yaml                 # resumo do project.md usado pelo OpenSpec
+│   ├── specs/                      # comportamentos já entregues (por capacidade)
+│   └── changes/                    # changes em andamento e arquivadas
+├── src/caderno_botanico/
+│   ├── app.py                      # ponto de montagem das camadas
+│   ├── domain/                     # entidades e regras de negócio
+│   ├── repositories/               # interfaces de acesso a dados
+│   ├── services/                   # casos de uso
+│   ├── storage/                    # SQLite
+│   └── ui/                         # controladores Qt e telas QML
+└── tests/                          # testes por camada
 ```
-
-O comando `openspec init` cria o restante de `openspec/` (specs, changes e arquivos da ferramenta de IA escolhida). Esses arquivos são gerados pelo fluxo e não devem ser editados à mão, exceto o `config.yaml`.
 
 ## Como trabalhar
 

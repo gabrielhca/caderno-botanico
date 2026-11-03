@@ -21,6 +21,9 @@ PROIBIDOS_NO_DOMAIN = (
 # Só o Storage pode acessar o SQLite.
 CAMADAS_SEM_SQLITE = ("ui", "services", "domain", "repositories")
 
+# Só a UI pode usar o Qt: Services, Domain, Repositories e Storage são Python puro.
+CAMADAS_SEM_QT = ("services", "domain", "repositories", "storage")
+
 
 def _importacoes(arquivo: Path):
     arvore = ast.parse(arquivo.read_text(encoding="utf-8"))
@@ -30,6 +33,16 @@ def _importacoes(arquivo: Path):
                 yield alias.name
         elif isinstance(no, ast.ImportFrom) and no.module:
             yield no.module
+
+
+def _violacoes(camadas: tuple[str, ...], proibido: str) -> list[str]:
+    violacoes = []
+    for camada in camadas:
+        for arquivo in (RAIZ / camada).rglob("*.py"):
+            for modulo in _importacoes(arquivo):
+                if modulo.startswith(proibido):
+                    violacoes.append(f"{camada}/{arquivo.name}: {modulo}")
+    return violacoes
 
 
 def test_domain_nao_depende_de_outras_camadas():
@@ -42,10 +55,8 @@ def test_domain_nao_depende_de_outras_camadas():
 
 
 def test_somente_storage_acessa_sqlite():
-    violacoes = []
-    for camada in CAMADAS_SEM_SQLITE:
-        for arquivo in (RAIZ / camada).rglob("*.py"):
-            for modulo in _importacoes(arquivo):
-                if modulo.startswith("sqlite3"):
-                    violacoes.append(f"{camada}/{arquivo.name}: {modulo}")
-    assert not violacoes, violacoes
+    assert not _violacoes(CAMADAS_SEM_SQLITE, "sqlite3")
+
+
+def test_somente_ui_usa_pyside6():
+    assert not _violacoes(CAMADAS_SEM_QT, "PySide6")
