@@ -23,8 +23,8 @@
 
 ## 5. Ponte Qt na UI
 
-- [ ] 5.1 Implementar `CadernoListModel` (`QAbstractListModel` com os papéis `id`, `nome`, `descricao` e `criadoEm`) e verificar com testes de `rowCount`, `data` e `roleNames`
-- [ ] 5.2 Implementar `CadernoController` (property do modelo, slots `criar` e `editar`, signals de sucesso e erro) e verificar com testes que erros do Domain viram mensagens em português e que o modelo é recarregado após criar e editar
+- [x] 5.1 Implementar `CadernoListModel` (`QAbstractListModel` com os papéis `id`, `nome`, `descricao` e `criadoEm`) e verificar com testes de `rowCount`, `data` e `roleNames`
+- [x] 5.2 Implementar `CadernoController` (property do modelo, slots `criar` e `editar`, signals de sucesso e erro) e verificar com testes que erros do Domain viram mensagens em português e que o modelo é recarregado após criar e editar
 
 ## 6. Interface QML e montagem
 
