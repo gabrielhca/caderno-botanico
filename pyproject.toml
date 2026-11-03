@@ -11,8 +11,8 @@ version = "0.1.0"
 description = "Diário fotográfico e controle de cultivo de plantas (desktop, offline-first)"
 readme = "README.md"
 requires-python = ">=3.14"
-# Vazio por enquanto: o PySide6 entra na change criar-caderno, quando houver interface.
-dependencies = []
+# Interface Qt/QML.
+dependencies = ["PySide6>=6.11"]
 
 [project.optional-dependencies]
 # Ferramentas usadas só no desenvolvimento: pip install -e ".[dev]"
