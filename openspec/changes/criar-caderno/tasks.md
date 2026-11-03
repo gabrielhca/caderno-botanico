@@ -33,9 +33,9 @@
 
 ## 7. Verificação final
 
-- [ ] 7.1 Percorrer manualmente os cenários do `specs/caderno-cultivo/spec.md` no aplicativo e verificar que todos se comportam como descrito
-- [ ] 7.2 Rodar `openspec validate criar-caderno`, `ruff check .`, `ruff format --check .` e `pytest`, e verificar que passam
-- [ ] 7.3 Atualizar o `README.md` (árvore do repositório e como executar) e verificar que as instruções funcionam a partir de um clone limpo
+- [x] 7.1 Percorrer manualmente os cenários do `specs/caderno-cultivo/spec.md` no aplicativo e verificar que todos se comportam como descrito
+- [x] 7.2 Rodar `openspec validate criar-caderno`, `ruff check .`, `ruff format --check .` e `pytest`, e verificar que passam
+- [x] 7.3 Atualizar o `README.md` (árvore do repositório e como executar) e verificar que as instruções funcionam a partir de um clone limpo
 
 ## Workflow follow-up
 
