@@ -28,8 +28,8 @@
 
 ## 6. Interface QML e montagem
 
-- [ ] 6.1 Criar a tela QML (lista de cadernos e formulário com Salvar e Cancelar) e o módulo de entrada que monta banco, repositório, service e controller; verificar executando o aplicativo e criando, editando e cancelando um caderno
-- [ ] 6.2 Rodar `pyside6-qmllint` nos arquivos QML e verificar que não há erros
+- [x] 6.1 Criar a tela QML (lista de cadernos e formulário com Salvar e Cancelar) e o módulo de entrada que monta banco, repositório, service e controller; verificar executando o aplicativo e criando, editando e cancelando um caderno
+- [x] 6.2 Rodar `pyside6-qmllint` nos arquivos QML e verificar que não há erros
 
 ## 7. Verificação final
 
