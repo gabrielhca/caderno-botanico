@@ -7,8 +7,8 @@
 
 ## 2. Domain
 
-- [ ] 2.1 Criar a entidade `Caderno`, o cálculo do nome normalizado, a validação de nome (obrigatório, até 80 caracteres) e as exceções `NomeInvalidoError` e `NomeDuplicadoError`, com testes em `tests/domain/` cobrindo os cenários de nome vazio, só espaços, 80 e 81 caracteres e normalização por caixa e espaços
-- [ ] 2.2 Rodar `pytest` e verificar que `tests/test_arquitetura.py` continua passando (Domain sem PySide6 e sem sqlite3)
+- [x] 2.1 Criar a entidade `Caderno`, o cálculo do nome normalizado, a validação de nome (obrigatório, até 80 caracteres) e as exceções `NomeInvalidoError` e `NomeDuplicadoError`, com testes em `tests/domain/` cobrindo os cenários de nome vazio, só espaços, 80 e 81 caracteres e normalização por caixa e espaços
+- [x] 2.2 Rodar `pytest` e verificar que `tests/test_arquitetura.py` continua passando (Domain sem PySide6 e sem sqlite3)
 
 ## 3. Repositories e Services
 
